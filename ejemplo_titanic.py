@@ -43,12 +43,6 @@ ax[1].set_xlabel("Sexo")
 ax[1].set_ylabel("Cantidad")
 ax[1].set_title('Distribución de hombres y mujeres')
 
-st.pyplot(fig)
-st.pyplot(fig1)
-
-st.write("""
-## Muestra de datos cargados
-""")
 # Graficamos una tabla
 st.table(df.head())
 
@@ -71,3 +65,8 @@ else:
     ax1.set_title("Frecuencia de Supervivencia para Mujer")
 
 # Desplegamos el gráfico
+st.pyplot(fig)
+st.pyplot(fig1)
+st.write("""
+## Muestra de datos cargados
+""")
