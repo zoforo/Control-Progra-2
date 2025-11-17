@@ -63,6 +63,7 @@ else:
 
 # Desplegamos el gráfico
 st.pyplot(fig)
+st.pyplot(fig1)
 
 st.write("""
 ## Muestra de datos cargados
