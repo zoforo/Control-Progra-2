@@ -58,7 +58,7 @@ elif opcion == "Mujer":
     ax1.set_ylabel(f"Supervivientes: {cant_fem}")
     ax1.set_title("Frecuencia de Supervivencia para Mujer")
 else:
-    ax1.bar(df_sort_sex_surv, [cant_mal, cant_fem], color = color)
+    ax1.bar(["Hombres, Mujeres"], [cant_mal, cant_fem], color = color)
     ax1.set_xlabel("Ambos Géneros")
     ax1.set_ylabel("Supervivientes")
     ax1.set_title("Frecuencia de Supervivencia para Ambos Géneros")
