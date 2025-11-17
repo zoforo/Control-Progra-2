@@ -54,12 +54,10 @@ cant_mal, cant_fem = df_sort_sex_surv
 
 if opcion == "Hombre":
     ax[2].bar(["Hombres"], [cant_mal], color = color)
-    ax[2].set_xlabel("Hombre")
-    ax[2].set_ylabel("Supervivientes")
+    ax[2].set_ylabel("Supervivientes"
     ax[2].set_title("Frecuencia de Supervivencia para Hombre")
 else: 
-    ax[2].bar(["Mujeres"], [cant_mal], color = color)
-    ax[2].set_xlabel("Mujer")
+    ax[2].bar(["Mujeres"], [cant_fem], color = color)
     ax[2].set_ylabel("Supervivientes")
     ax[2].set_title("Frecuencia de Supervivencia para Mujer")
 
