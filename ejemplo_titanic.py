@@ -40,6 +40,7 @@ ax[1].set_xlabel("Sexo")
 ax[1].set_ylabel("Cantidad")
 ax[1].set_title('Distribución de hombres y mujeres')
 # Usando la notación "with" para crear una barra lateral en la aplicación Streamlit.
+st.pyplot(fig)
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_fem, cant_mal = df_sort_sex_surv
@@ -70,7 +71,6 @@ st.write("""
 
 # Desplegamos el gráfico
 
-st.pyplot(fig)
 st.pyplot(fig1)
 
 # Graficamos una tabla
