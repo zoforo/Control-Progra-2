@@ -41,7 +41,7 @@ ax[1].set_ylabel("Cantidad")
 ax[1].set_title('Distribución de hombres y mujeres')
 # Usando la notación "with" para crear una barra lateral en la aplicación Streamlit.
 st.pyplot(fig)
-col1, col2 = st.columns([0.2, 0.8], gap=None, border=False)
+col1, col2 = st.columns([0.4, 0.6], gap=None, border=False)
 with col1:
     st.write("### Opciones Gráfico de Supervivencia")
     color = st.color_picker("Elija el color del siguiente Gráfico")
