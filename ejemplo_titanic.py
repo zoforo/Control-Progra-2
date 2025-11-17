@@ -43,6 +43,12 @@ ax[1].set_xlabel("Sexo")
 ax[1].set_ylabel("Cantidad")
 ax[1].set_title('Distribución de hombres y mujeres')
 
+df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
+df_sort_sex_surv
+ax = df_sort_sex_surv.plot(kind="bar")
+ax.set_xlabel("Sex"); ax.set_ylabel("Survived")
+ax.set_title("Survived frecuency by Sex")
+
 # Desplegamos el gráfico
 st.pyplot(fig)
 
