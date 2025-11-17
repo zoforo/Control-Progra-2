@@ -73,7 +73,7 @@ st.pyplot(fig1)
 # Graficamos una tabla
 st.table(df.head())
 
-st.write("Esa era mi página :P")
 st.image("gato.jpeg")
 st.write("Porfavor puntúa qué tan buena fue mi página : P")
 st.feedback("faces")
+st.write("Esa era mi página :P")
