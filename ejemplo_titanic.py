@@ -4,13 +4,33 @@ import matplotlib.pyplot as plt
 
 # Carga el archivo CSV "database_titanic.csv" en un DataFrame de pandas.
 df = pd.read_csv("database_titanic.csv")
-
+col1, col2 = st.columns([0.2, 0.8], gap="small", border=True)
 # Muestra un título y una descripción en la aplicación Streamlit.
-st.write("""
+with col1: 
+    st.wirte("""
 # Mi primera aplicación interactiva
 ## Gráficos usando la base de datos del Titanic
 """)
-
+with col2:
+    # Desplegamos un histograma con los datos del eje X
+    fig, ax = plt.subplots(1, 2, figsize=(12, 3))
+    ax[0].hist(df["Age"], bins=div)
+    ax[0].set_xlabel("Edad")
+    ax[0].set_ylabel("Frecuencia")
+    ax[0].set_title("Histograma de edades")
+    
+    # Tomando datos para hombres y contando la cantidad
+    df_male = df[df["Sex"] == "male"]
+    cant_male = len(df_male)
+    
+    # Tomando datos para mujeres y contando la cantidad
+    df_female = df[df["Sex"] == "female"]
+    cant_female = len(df_female)
+    
+    ax[1].bar(["Masculino", "Femenino"], [cant_male, cant_female], color = "red")
+    ax[1].set_xlabel("Sexo")
+    ax[1].set_ylabel("Cantidad")
+    ax[1].set_title('Distribución de hombres y mujeres')
 # Usando la notación "with" para crear una barra lateral en la aplicación Streamlit.
 with st.sidebar:
     # Título para la sección de opciones en la barra lateral.
@@ -23,31 +43,11 @@ with st.sidebar:
     # Muestra el valor actual del slider en la barra lateral.
     st.write("Bins=", div)
 
-# Desplegamos un histograma con los datos del eje X
-fig, ax = plt.subplots(1, 2, figsize=(12, 3))
-ax[0].hist(df["Age"], bins=div)
-ax[0].set_xlabel("Edad")
-ax[0].set_ylabel("Frecuencia")
-ax[0].set_title("Histograma de edades")
-
-# Tomando datos para hombres y contando la cantidad
-df_male = df[df["Sex"] == "male"]
-cant_male = len(df_male)
-
-# Tomando datos para mujeres y contando la cantidad
-df_female = df[df["Sex"] == "female"]
-cant_female = len(df_female)
-
-ax[1].bar(["Masculino", "Femenino"], [cant_male, cant_female], color = "red")
-ax[1].set_xlabel("Sexo")
-ax[1].set_ylabel("Cantidad")
-ax[1].set_title('Distribución de hombres y mujeres')
-
-with st.sidebar:
     st.write("Opciones Gráfico de Supervivencia")
     color = st.color_picker("Elija el color del siguiente Gráfico")
     st.write("El color actual es", color)
     opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer"))
+
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_mal, cant_fem = df_sort_sex_surv
