@@ -51,7 +51,7 @@ with st.sidebar:
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_mal, cant_fem = df_sort_sex_surv
-fig, ax1 = plt.subplots(1, 1, figsize=(6,3))
+fig1, ax1 = plt.subplots(1, 1, figsize=(6,3))
 if opcion == "Hombre":
     ax1[0].bar(["Hombres"], [cant_mal], color = color)
     ax1[0].set_ylabel("Supervivientes")
