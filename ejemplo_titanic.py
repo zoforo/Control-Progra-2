@@ -51,15 +51,15 @@ with st.sidebar:
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_mal, cant_fem = df_sort_sex_surv
-fig, ax = plt.subplots(1, 1, figsize=(6,3))
+fig, ax1 = plt.subplots(1, 1, figsize=(6,3))
 if opcion == "Hombre":
-    ax[2].bar(["Hombres"], [cant_mal], color = color)
-    ax[2].set_ylabel("Supervivientes")
-    ax[2].set_title("Frecuencia de Supervivencia para Hombre")
+    ax1[0].bar(["Hombres"], [cant_mal], color = color)
+    ax1[0].set_ylabel("Supervivientes")
+    ax1[0].set_title("Frecuencia de Supervivencia para Hombre")
 else: 
-    ax[2].bar(["Mujeres"], [cant_fem], color = color)
-    ax[2].set_ylabel("Supervivientes")
-    ax[2].set_title("Frecuencia de Supervivencia para Mujer")
+    ax1[0].bar(["Mujeres"], [cant_fem], color = color)
+    ax1[0].set_ylabel("Supervivientes")
+    ax1[0].set_title("Frecuencia de Supervivencia para Mujer")
 
 # Desplegamos el gráfico
 st.pyplot(fig)
