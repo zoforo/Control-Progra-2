@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 # Carga el archivo CSV "database_titanic.csv" en un DataFrame de pandas.
 df = pd.read_csv("database_titanic.csv")
-col1, col2 = st.columns([0.2, 0.8], gap="small", border=True)
 # Muestra un título y una descripción en la aplicación Streamlit. 
 st.write("""
 # Mi primera aplicación interactiva
@@ -25,6 +24,9 @@ with st.sidebar:
     color = st.color_picker("Elija el color del siguiente Gráfico")
     st.write("El color actual es", color)
     opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer"))
+col1, col2 = st.columns([0.2, 0.8], gap="small", border=True)
+with col1:
+    st.write("Gráficos de hist")
 with col2:
     # Desplegamos un histograma con los datos del eje X
     fig, ax = plt.subplots(1, 2, figsize=(12, 3))
