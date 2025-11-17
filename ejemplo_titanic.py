@@ -51,28 +51,28 @@ with col1:
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_fem, cant_mal = df_sort_sex_surv
 fig1, ax1 = plt.subplots(1, 1, figsize=(3,3))
-with col2:
-    if opcion == "Hombre":
-        ax1.bar(["Hombres"], [cant_mal], color = color)
-        ax1.set_ylabel(f"Supervivientes: {cant_mal}")
-        ax1.set_title("Frecuencia de Supervivencia para Hombre")
-    elif opcion == "Mujer":
-        ax1.bar(["Mujeres"], [cant_fem], color = color)
-        ax1.set_ylabel(f"Supervivientes: {cant_fem}")
-        ax1.set_title("Frecuencia de Supervivencia para Mujer")
-    else:
-        ax1.bar(["Hombres", "Mujeres"], [cant_mal, cant_fem], color = color)
-        ax1.set_xlabel("Ambos Géneros")
-        ax1.set_ylabel("Supervivientes")
-        ax1.set_title("Frecuencia de Supervivencia para Ambos Géneros")
+
+if opcion == "Hombre":
+    ax1.bar(["Hombres"], [cant_mal], color = color)
+    ax1.set_ylabel(f"Supervivientes: {cant_mal}")
+    ax1.set_title("Frecuencia de Supervivencia para Hombre")
+elif opcion == "Mujer":
+    ax1.bar(["Mujeres"], [cant_fem], color = color)
+    ax1.set_ylabel(f"Supervivientes: {cant_fem}")
+    ax1.set_title("Frecuencia de Supervivencia para Mujer")
+else:
+    ax1.bar(["Hombres", "Mujeres"], [cant_mal, cant_fem], color = color)
+    ax1.set_xlabel("Ambos Géneros")
+    ax1.set_ylabel("Supervivientes")
+    ax1.set_title("Frecuencia de Supervivencia para Ambos Géneros")
     
 st.write("""
 ## Muestra de datos cargados
 """)
 
 # Desplegamos el gráfico
-
-st.pyplot(fig1)
+with col2:
+    st.pyplot(fig1)
 
 # Graficamos una tabla
 st.table(df.head())
