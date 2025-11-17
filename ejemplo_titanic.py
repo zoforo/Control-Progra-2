@@ -74,4 +74,4 @@ st.pyplot(fig1)
 st.table(df.head())
 
 st.write("Esa era mi página :P")
-st.image("https://imgur.com/a/cRCHlNO")
+st.image("gato.jpeg")
