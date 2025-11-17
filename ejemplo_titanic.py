@@ -75,3 +75,4 @@ st.table(df.head())
 
 st.write("Esa era mi página :P")
 st.image("gato.jpeg")
+st.feedback("faces", "Puntúa qué tan buena fue mi página: P")
