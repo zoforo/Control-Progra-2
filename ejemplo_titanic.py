@@ -73,3 +73,5 @@ st.pyplot(fig1)
 # Graficamos una tabla
 st.table(df.head())
 
+st.write("Esa era mi página :P")
+st.image("https://imgur.com/a/cRCHlNO")
