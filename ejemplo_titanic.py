@@ -46,7 +46,7 @@ df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_fem, cant_mal = df_sort_sex_surv
 fig1, ax1 = plt.subplots(1, 1, figsize=(3,3))
 
-st.write("Opciones Gráfico de Supervivencia")
+st.write("##Opciones Gráfico de Supervivencia")
 color = st.color_picker("Elija el color del siguiente Gráfico")
 st.write("El color actual es", color)
 opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer", "Ambos"))
