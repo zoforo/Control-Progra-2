@@ -24,29 +24,26 @@ with st.sidebar:
     color = st.color_picker("Elija el color del siguiente Gráfico")
     st.write("El color actual es", color)
     opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer"))
-col1, col2 = st.columns([0.2, 0.8], gap="small", border=True)
-with col1:
-    st.write("Gráficos de hist")
-with col2:
-    # Desplegamos un histograma con los datos del eje X
-    fig, ax = plt.subplots(1, 2, figsize=(12, 3))
-    ax[0].hist(df["Age"], bins=div)
-    ax[0].set_xlabel("Edad")
-    ax[0].set_ylabel("Frecuencia")
-    ax[0].set_title("Histograma de edades")
     
-    # Tomando datos para hombres y contando la cantidad
-    df_male = df[df["Sex"] == "male"]
-    cant_male = len(df_male)
-    
-    # Tomando datos para mujeres y contando la cantidad
-    df_female = df[df["Sex"] == "female"]
-    cant_female = len(df_female)
-    
-    ax[1].bar(["Masculino", "Femenino"], [cant_male, cant_female], color = "red")
-    ax[1].set_xlabel("Sexo")
-    ax[1].set_ylabel("Cantidad")
-    ax[1].set_title('Distribución de hombres y mujeres')
+# Desplegamos un histograma con los datos del eje X
+fig, ax = plt.subplots(1, 2, figsize=(12, 3))
+ax[0].hist(df["Age"], bins=div)
+ax[0].set_xlabel("Edad")
+ax[0].set_ylabel("Frecuencia")
+ax[0].set_title("Histograma de edades")
+
+# Tomando datos para hombres y contando la cantidad
+df_male = df[df["Sex"] == "male"]
+cant_male = len(df_male)
+
+# Tomando datos para mujeres y contando la cantidad
+df_female = df[df["Sex"] == "female"]
+cant_female = len(df_female)
+
+ax[1].bar(["Masculino", "Femenino"], [cant_male, cant_female], color = "red")
+ax[1].set_xlabel("Sexo")
+ax[1].set_ylabel("Cantidad")
+ax[1].set_title('Distribución de hombres y mujeres')
 # Usando la notación "with" para crear una barra lateral en la aplicación Streamlit.
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
