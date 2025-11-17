@@ -43,7 +43,7 @@ ax[1].set_title('Distribución de hombres y mujeres')
 st.pyplot(fig)
 col1, col2 = st.columns(2)
 with col1:
-    st.write("## Opciones Gráfico de Supervivencia")
+    st.write("### Opciones Gráfico de Supervivencia")
     color = st.color_picker("Elija el color del siguiente Gráfico")
     st.write("El color actual es", color)
     opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer", "Ambos"))
