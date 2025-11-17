@@ -7,7 +7,7 @@ df = pd.read_csv("database_titanic.csv")
 col1, col2 = st.columns([0.2, 0.8], gap="small", border=True)
 # Muestra un título y una descripción en la aplicación Streamlit.
 with col1: 
-    st.wirte("""
+    st.write("""
 # Mi primera aplicación interactiva
 ## Gráficos usando la base de datos del Titanic
 """)
