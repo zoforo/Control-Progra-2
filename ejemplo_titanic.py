@@ -43,9 +43,6 @@ ax[1].set_xlabel("Sexo")
 ax[1].set_ylabel("Cantidad")
 ax[1].set_title('Distribución de hombres y mujeres')
 
-# Graficamos una tabla
-st.table(df.head())
-
 with st.sidebar:
     st.write("Opciones Gráfico de Supervivencia")
     color = st.color_picker("Elija el color del siguiente Gráfico")
@@ -63,10 +60,16 @@ else:
     ax1.bar(["Mujeres"], [cant_fem], color = color)
     ax1.set_ylabel(f"Supervivientes: {cant_fem}")
     ax1.set_title("Frecuencia de Supervivencia para Mujer")
-
-# Desplegamos el gráfico
-st.pyplot(fig)
-st.pyplot(fig1)
+    
 st.write("""
 ## Muestra de datos cargados
 """)
+
+# Desplegamos el gráfico
+
+st.pyplot(fig)
+st.pyplot(fig1)
+
+# Graficamos una tabla
+st.table(df.head())
+
