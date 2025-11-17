@@ -53,11 +53,11 @@ cant_fem, cant_mal = df_sort_sex_surv
 fig1, ax1 = plt.subplots(1, 1, figsize=(4,4))
 
 if opcion == "Hombre":
-    ax1.bar(["Hombres"], [cant_mal], color = color, align='center', width=0.6)
+    ax1.bar(["Hombres"], [cant_mal], color = color, align='center', width=0.4)
     ax1.set_ylabel(f"Supervivientes: {cant_mal}")
     ax1.set_title("Frecuencia de Supervivencia para Hombre")
 elif opcion == "Mujer":
-    ax1.bar(["Mujeres"], [cant_fem], color = color, align='center', width=0.6)
+    ax1.bar(["Mujeres"], [cant_fem], color = color, align='center', width=0.4)
     ax1.set_ylabel(f"Supervivientes: {cant_fem}")
     ax1.set_title("Frecuencia de Supervivencia para Mujer")
 else:
