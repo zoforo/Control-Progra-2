@@ -23,7 +23,7 @@ with st.sidebar:
     st.write("Opciones Gráfico de Supervivencia")
     color = st.color_picker("Elija el color del siguiente Gráfico")
     st.write("El color actual es", color)
-    opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer"))
+    opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer", "Ambos"))
     
 # Desplegamos un histograma con los datos del eje X
 fig, ax = plt.subplots(1, 2, figsize=(12, 3))
@@ -53,10 +53,15 @@ if opcion == "Hombre":
     ax1.bar(["Hombres"], [cant_mal], color = color)
     ax1.set_ylabel(f"Supervivientes: {cant_mal}")
     ax1.set_title("Frecuencia de Supervivencia para Hombre")
-else: 
+elif opcion == "Mujer":
     ax1.bar(["Mujeres"], [cant_fem], color = color)
     ax1.set_ylabel(f"Supervivientes: {cant_fem}")
     ax1.set_title("Frecuencia de Supervivencia para Mujer")
+else:
+    ax1.bar(df_sort_sex_surv, [cant_mal, cant_fem], color = color)
+    ax1.set_xlabel("Ambos Géneros")
+    ax1.set_ylabel("Supervivientes")
+    ax1.set_title("Frecuencia de Supervivencia para Ambos Géneros")
     
 st.write("""
 ## Muestra de datos cargados
