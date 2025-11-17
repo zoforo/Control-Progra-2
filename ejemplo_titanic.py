@@ -41,29 +41,30 @@ ax[1].set_ylabel("Cantidad")
 ax[1].set_title('Distribución de hombres y mujeres')
 # Usando la notación "with" para crear una barra lateral en la aplicación Streamlit.
 st.pyplot(fig)
-
+col1, col2 = st.columns(2)
+with col1:
+    st.write("## Opciones Gráfico de Supervivencia")
+    color = st.color_picker("Elija el color del siguiente Gráfico")
+    st.write("El color actual es", color)
+    opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer", "Ambos"))
+    
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_fem, cant_mal = df_sort_sex_surv
 fig1, ax1 = plt.subplots(1, 1, figsize=(3,3))
-
-st.write("## Opciones Gráfico de Supervivencia")
-color = st.color_picker("Elija el color del siguiente Gráfico")
-st.write("El color actual es", color)
-opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer", "Ambos"))
-
-if opcion == "Hombre":
-    ax1.bar(["Hombres"], [cant_mal], color = color)
-    ax1.set_ylabel(f"Supervivientes: {cant_mal}")
-    ax1.set_title("Frecuencia de Supervivencia para Hombre")
-elif opcion == "Mujer":
-    ax1.bar(["Mujeres"], [cant_fem], color = color)
-    ax1.set_ylabel(f"Supervivientes: {cant_fem}")
-    ax1.set_title("Frecuencia de Supervivencia para Mujer")
-else:
-    ax1.bar(["Hombres", "Mujeres"], [cant_mal, cant_fem], color = color)
-    ax1.set_xlabel("Ambos Géneros")
-    ax1.set_ylabel("Supervivientes")
-    ax1.set_title("Frecuencia de Supervivencia para Ambos Géneros")
+with col2:
+    if opcion == "Hombre":
+        ax1.bar(["Hombres"], [cant_mal], color = color)
+        ax1.set_ylabel(f"Supervivientes: {cant_mal}")
+        ax1.set_title("Frecuencia de Supervivencia para Hombre")
+    elif opcion == "Mujer":
+        ax1.bar(["Mujeres"], [cant_fem], color = color)
+        ax1.set_ylabel(f"Supervivientes: {cant_fem}")
+        ax1.set_title("Frecuencia de Supervivencia para Mujer")
+    else:
+        ax1.bar(["Hombres", "Mujeres"], [cant_mal, cant_fem], color = color)
+        ax1.set_xlabel("Ambos Géneros")
+        ax1.set_ylabel("Supervivientes")
+        ax1.set_title("Frecuencia de Supervivencia para Ambos Géneros")
     
 st.write("""
 ## Muestra de datos cargados
