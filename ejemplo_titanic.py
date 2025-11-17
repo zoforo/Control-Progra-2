@@ -45,7 +45,7 @@ ax[1].set_title('Distribución de hombres y mujeres')
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_mal, cant_fem = df_sort_sex_surv
-ax[2].bar(["Male", "Female"], [cant_mal, cant_fem], color = "cyan")
+ax[2].bar(["Hombres", "Mujeres"], [cant_mal, cant_fem], color = "cyan")
 ax[2].set_xlabel("Sexo")
 ax[2].set_ylabel("Supervivientes")
 ax[2].set_title("Frecuencia de Supervivencia por Sexo")
