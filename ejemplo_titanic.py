@@ -50,7 +50,7 @@ with col1:
     
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_fem, cant_mal = df_sort_sex_surv
-fig1, ax1 = plt.subplots(1, 1, figsize=(3,3))
+fig1, ax1 = plt.subplots(1, 1, figsize=(3,5))
 
 if opcion == "Hombre":
     ax1.bar(["Hombres"], [cant_mal], color = color)
