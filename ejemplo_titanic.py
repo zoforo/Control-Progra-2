@@ -10,6 +10,21 @@ st.write("""
 # Mi primera aplicación interactiva
 ## Gráficos usando la base de datos del Titanic
 """)
+with st.sidebar:
+    # Título para la sección de opciones en la barra lateral.
+    st.write("# Opciones")
+    
+    # Crea un control deslizante (slider) que permite al usuario seleccionar un número de bins
+    # en el rango de 0 a 10, con un valor predeterminado de 2.
+    div = st.slider('Número de bins (Primer Gráfico):', 1, 10, 2)
+    
+    # Muestra el valor actual del slider en la barra lateral.
+    st.write("Bins=", div)
+
+    st.write("Opciones Gráfico de Supervivencia")
+    color = st.color_picker("Elija el color del siguiente Gráfico")
+    st.write("El color actual es", color)
+    opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer"))
 with col2:
     # Desplegamos un histograma con los datos del eje X
     fig, ax = plt.subplots(1, 2, figsize=(12, 3))
@@ -31,22 +46,6 @@ with col2:
     ax[1].set_ylabel("Cantidad")
     ax[1].set_title('Distribución de hombres y mujeres')
 # Usando la notación "with" para crear una barra lateral en la aplicación Streamlit.
-with st.sidebar:
-    # Título para la sección de opciones en la barra lateral.
-    st.write("# Opciones")
-    
-    # Crea un control deslizante (slider) que permite al usuario seleccionar un número de bins
-    # en el rango de 0 a 10, con un valor predeterminado de 2.
-    div = st.slider('Número de bins (Primer Gráfico):', 1, 10, 2)
-    
-    # Muestra el valor actual del slider en la barra lateral.
-    st.write("Bins=", div)
-
-    st.write("Opciones Gráfico de Supervivencia")
-    color = st.color_picker("Elija el color del siguiente Gráfico")
-    st.write("El color actual es", color)
-    opcion = st.selectbox("Seleccione qué género desea graficar", ("Hombre", "Mujer"))
-
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_mal, cant_fem = df_sort_sex_surv
