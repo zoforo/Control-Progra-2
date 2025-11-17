@@ -24,7 +24,7 @@ with st.sidebar:
     st.write("Bins=", div)
 
 # Desplegamos un histograma con los datos del eje X
-fig, ax = plt.subplots(2, 1, figsize=(12, 3))
+fig, ax = plt.subplots(1, 2, figsize=(12, 3))
 ax[0].hist(df["Age"], bins=div)
 ax[0].set_xlabel("Edad")
 ax[0].set_ylabel("Frecuencia")
@@ -51,7 +51,7 @@ with st.sidebar:
 
 df_sort_sex_surv = df.groupby('Sex')['Survived'].sum()
 cant_mal, cant_fem = df_sort_sex_surv
-fig1, ax1 = plt.subplots(1, 1, figsize=(6,3))
+fig1, ax1 = plt.subplots(1, 1, figsize=(3,5))
 if opcion == "Hombre":
     ax1.bar(["Hombres"], [cant_mal], color = color)
     ax1.set_ylabel("Supervivientes")
